@@ -105,3 +105,25 @@ main::-webkit-scrollbar-thumb {
 b {
   color: #96EB95;
 }
+
+#searchBox {
+  display: flex;
+}
+
+@media (min-width:320px) and (max-width:900px) {
+  body {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #searchBox {
+    flex-direction: column;
+  }
+  header h1{
+    text-align: center;
+  }
+  button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
