@@ -1,12 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/style.css">
+  <title>Casa de Câmbio</title>
 </head>
 <body>
-  
+
+  <header>
+    <h1>Casa de <span>Câmbio</span></h1>
+  </header>
+
+  <article>
+    <section>
+      <p>Digite sua moeda:</p>
+    </section>
+    <section>
+      <label for="coin">
+        <input type="text" name="coin" id="coin" placeholder="Ex: BRL, USD, EUR">
+      </label>
+      <button id="pesquisar"> Pesquisar </button> <br> <br> 
+      <b id="referencia">Valor referente: <span id="referenciaspan"></span></b>
+    </section>
+  </article>
+
+  <main>
+    <h1></h1>
+  </main>  
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>
