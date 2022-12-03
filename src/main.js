@@ -1,13 +1,10 @@
 // ES6 Modules or TypeScript
 import Swal from 'sweetalert2'
 
-// Recebe e repassa o valor armazenado no input
-const getValue = () => {
-
-  const coinValue = document.getElementById('coin').value;
-  coinValue.toUpperCase();
-
-  if (coinValue === '') {
+const error = (coinValue, data) => {
+  const coinUp = coinValue.toUpperCase();
+  
+  if (coinUp === '') {
     Swal.fire({
       title: 'Error!',
       text: 'O espaço de pesquisa está vazio!',
@@ -18,10 +15,10 @@ const getValue = () => {
     })
     throw new Error ('Campo de busca vazio!');
 
-  } else if (coinValue.length < 3) {
+  } else if (coinUp.length < 3) {
     Swal.fire({
       title: 'Error!',
-      text: 'Quantidade de letras insuficientes para encontrar alguma coisa',
+      text: 'Quantidade de letras insuficientes para encontrar alguma coisa!',
       icon: 'error',
       confirmButtonText: 'Entendi!',
       background: '#2f3135',
@@ -29,20 +26,33 @@ const getValue = () => {
     })
     throw new Error ('Campo de busca possui menos de 3 caracteres');
 
-  } else if (coinValue.length > 3) {
+  } else if (coinUp.length > 3) {
     Swal.fire({
       title: 'Error!',
-      text: 'Letras demais... Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR !!!',
+      text: 'Letras demais... Não existem pares disponíveis com mais de 3 letras!',
       icon: 'error',
       confirmButtonText: 'Entendi!',
       background: '#2f3135',
       color: '#fff'
     })
     throw new Error ('Campo de busca possui mais de 3 caracteres');
+  } else if (coinUp !== data) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Não encontramos o que procura,tente novamente!',
+      icon: 'error',
+      confirmButtonText: 'Entendi!',
+      background: '#2f3135',
+      color: '#fff'
+    })
+    throw new Error ('o que procura não existe, retornando dados padão')
   }
+}
 
-  // caso nenhuma das condições de erro forem atendidas o código segue normal
-  getCoinsDatabase(coinValue.toUpperCase());
+// Recebe e repassa o valor armazenado no input
+const getValue = () => {
+  const coinValue = document.getElementById('coin').value;
+  getCoinsDatabase(coinValue);
 }
 
 const blockNumber = (e) => {
@@ -67,17 +77,7 @@ const getCoinsDatabase = async (coin) => {
   try {
     const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
     const data =  await response.json();
-    if (coin !== data.base) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Não encontramos o que procura,tente novamente!',
-        icon: 'error',
-        confirmButtonText: 'Entendi!',
-        background: '#2f3135',
-        color: '#fff'
-      })
-      throw new Error ('o que procura não existe, retornando dados padão')
-    }
+    error(coin, data.base);
     renderCoin(data);
     reference(data);
   }
