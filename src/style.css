@@ -32,6 +32,7 @@ main {
   flex-wrap: wrap;
   max-height: 300px;
   overflow-y: scroll;
+  padding: 10px;
   width: 100%; 
 }
 
@@ -120,6 +121,7 @@ b {
   }
   main {
     justify-content: center;
+    padding: 5px;
   }
 
   #searchBox {
