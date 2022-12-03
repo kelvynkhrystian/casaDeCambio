@@ -63,6 +63,15 @@ const getCoinsDatabase = async (coin) => {
     const data =  await response.json();
     renderCoin(data);
     reference(data);
+    if (coin != data.base) {
+      Swal.fire({
+        title: 'Error!',
+        text: 'Não encontramos o que procura,tente novamente!',
+        icon: 'error',
+        confirmButtonText: 'Entendi!'
+      })
+      throw new Error ('o que procura não existe, retornando dados padão')
+    }
   }
   catch (erro) {
     console.log(erro.message);
