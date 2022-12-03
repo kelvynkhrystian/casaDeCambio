@@ -10,7 +10,7 @@ const getValue = () => {
   if (coinValue === '') {
     Swal.fire({
       title: 'Error!',
-      text: 'Para pesquisar não deixe o espaço vazio!',
+      text: 'O espaço de pesquisa está vazio!',
       icon: 'error',
       confirmButtonText: 'Entendi!',
       background: '#2f3135',
