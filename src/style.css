@@ -1,0 +1,85 @@
+html {
+  background-color: #282C33;
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+
+body {
+  align-items: flex-start;
+  display: flex;
+  font-family: 'Fira Code', monospace;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+  margin: auto;
+  width: 70%;
+}
+
+span {
+  color: #96EB95;
+}
+
+header {
+  font-size: xx-large;
+  width: 100%;
+}
+
+main {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  min-height: 300px; 
+  width: 100%; 
+}
+
+article {
+  align-items: flex-start;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+label {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+input {
+  color: #96EB95 ;
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+}
+
+input:focus {
+  outline: 0;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+  color: rgb(32, 32, 32);
+  background-color: #96EB95;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Fira Code', monospace;
+  padding: 7px 20px;
+  margin-left: 10px;
+}
+
+button:active {
+  padding: 6.9px 19.5px;
+}
+
+#referencia {
+  display: none;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+#referenciaspan {
+  margin-left: 5px;
+  color: #96EB95;
+}
