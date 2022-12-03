@@ -3,44 +3,40 @@ import Swal from 'sweetalert2'
 
 // Recebe e repassa o valor armazenado no input
 const getValue = () => {
-    const coinValue = document.getElementById('coin').value;
-    coinValue.toUpperCase();
-    if (coinValue === '') {
-        Swal.fire({
-            title: 'Error!',
-            text: 'Para pesquisar não deixe o espaço vazio!',
-            icon: 'error',
-            confirmButtonText: 'Entendi!'
-        })
-        throw new Error ('Campo de busca vazio!');
-    } else if (typeof coinValue != 'string') {
-        Swal.fire({
-            title: 'Error!',
-            text: 'Digite somente letras!',
-            icon: 'error',
-            confirmButtonText: 'Entendi!'
-        })
-        throw new Error ('Campo de busca não possui letras');
-    } else if (coinValue.length < 3) {
-        Swal.fire({
-            title: 'Error!',
-            text: 'Quantidade de letras insuficientes para encontrar alguma coisa',
-            icon: 'error',
-            confirmButtonText: 'Entendi!'
-        })
-        throw new Error ('Campo de busca possui menos de 3 caracteres');
-    } else if (coinValue.length > 3) {
-        Swal.fire({
-            title: 'Error!',
-            text: 'Letras demais... Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR !!!',
-            icon: 'error',
-            confirmButtonText: 'Entendi!'
-        })
-        throw new Error ('Campo de busca possui mais de 3 caracteres');
-    }
 
-    // caso nenhuma das condições de erro forem atendidas o código segue normal
-    getCoinsDatabase(coinValue);
+  const coinValue = document.getElementById('coin').value;
+  coinValue.toUpperCase();
+
+  if (coinValue === '') {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Para pesquisar não deixe o espaço vazio!',
+      icon: 'error',
+      confirmButtonText: 'Entendi!'
+    })
+    throw new Error ('Campo de busca vazio!');
+
+  } else if (coinValue.length < 3) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Quantidade de letras insuficientes para encontrar alguma coisa',
+      icon: 'error',
+      confirmButtonText: 'Entendi!'
+    })
+    throw new Error ('Campo de busca possui menos de 3 caracteres');
+
+  } else if (coinValue.length > 3) {
+    Swal.fire({
+      title: 'Error!',
+      text: 'Letras demais... Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR !!!',
+      icon: 'error',
+      confirmButtonText: 'Entendi!'
+    })
+    throw new Error ('Campo de busca possui mais de 3 caracteres');
+  }
+
+  // caso nenhuma das condições de erro forem atendidas o código segue normal
+  getCoinsDatabase(coinValue);
 }
 
 const blockNumber = (e) => {
@@ -62,23 +58,22 @@ search();
 
 // faz a requisição na API e repassa os dados ŕecebidos
 const getCoinsDatabase = async (coin) => {
-    const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
-    const data =  await response.json();
-    renderCoin(data);
-    reference(data);
+  const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
+  const data =  await response.json();
+  renderCoin(data);
+  reference(data);
 }
 
 const createCoinsBox = (element) => {
-    const main = document.querySelector("#main");
-    const coinPar = document.createElement("p");
-    const coinValue = element[1].toFixed(2);
-    coinPar.innerHTML = `<b>${element[0]}: </b> ${coinValue}`;
-    coinPar.style.margin = '5px';
-    coinPar.style.padding = '5px';
-    coinPar.style.borderRadius = '10px';
-    main.style.display = 'flex';
-    main.appendChild(coinPar);
-
+  const main = document.querySelector("#main");
+  const coinPar = document.createElement("p");
+  const coinValue = element[1].toFixed(2);
+  coinPar.innerHTML = `<b>${element[0]}: </b> ${coinValue}`;
+  coinPar.style.margin = '5px';
+  coinPar.style.padding = '5px';
+  coinPar.style.borderRadius = '10px';
+  main.style.display = 'flex';
+  main.appendChild(coinPar);
 }
 
 // recebe o valor da chave rates, por object destructing, devido ao valor data ser passado por arg
