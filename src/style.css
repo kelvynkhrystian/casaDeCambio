@@ -110,16 +110,16 @@ b {
   display: block;
 }
 
-@media (min-width:320px) and (max-width:600px) {
+@media (min-width:0px) and (max-width:600px) {
   body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 90%;
+    height: 100vh;
   }
   main {
     justify-content: center;
-    height: 100vh;
   }
 
   #searchBox {
