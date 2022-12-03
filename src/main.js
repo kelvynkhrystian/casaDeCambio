@@ -17,14 +17,18 @@ const getCoinsDatabase = async (coin) => {
     const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
     const data =  await response.json();
     renderCoin(data);
-    reference(data)
+    reference(data);
 }
 
 const createCoinsBox = (element) => {
-    const main = document.querySelector("#main")
+    const main = document.querySelector("#main");
     const coinPar = document.createElement("p");
-    coinPar.innerHTML = `${element[0]}: ${element[1]}`
-    main.appendChild(coinPar)
+    coinPar.innerHTML = `<b>${element[0]}: </b> ${element[1]}`;
+    coinPar.style.margin = '5px';
+    coinPar.style.padding = '5px';
+    coinPar.style.borderRadius = '10px';
+    main.style.display = 'flex';
+    main.appendChild(coinPar);
 
 }
 

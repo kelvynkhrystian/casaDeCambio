@@ -28,7 +28,10 @@ header {
 main {
   background: rgba(255, 255, 255, 0.06);
   border-radius: 20px;
-  min-height: 300px; 
+  display: none;
+  flex-wrap: wrap;
+  max-height: 300px;
+  overflow-y: scroll;
   width: 100%; 
 }
 
@@ -81,5 +84,24 @@ button:active {
 
 #referenciaspan {
   margin-left: 5px;
+  color: #96EB95;
+}
+
+main::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+main::-webkit-scrollbar-track {
+  border-radius: 0 10px 10px 0;
+  background: #2f3135;       /* color of the tracking area */
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: #96EB95; /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: 3px solid #282C33;  /* creates padding around scroll thumb */
+}
+
+b {
   color: #96EB95;
 }
