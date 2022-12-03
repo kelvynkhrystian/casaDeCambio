@@ -92,6 +92,7 @@ const createCoinsBox = (element) => {
 
 // recebe o valor da chave rates, por object destructing, devido ao valor data ser passado por arg
 const renderCoin = ({rates}) => {
+  cleanResults();
   const pares = Object.entries(rates);
   pares.forEach((element) => createCoinsBox(element));
 }
@@ -104,6 +105,9 @@ const reference = ({base}) => {
   referenceSpan.innerHTML = `1 ${base}`;
 }
 
-
+const cleanResults = () => {
+  const main = document.getElementById('main');
+  main.innerHTML = "";
+}
 
 
