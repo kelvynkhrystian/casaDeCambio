@@ -12,7 +12,9 @@ const getValue = () => {
       title: 'Error!',
       text: 'Para pesquisar não deixe o espaço vazio!',
       icon: 'error',
-      confirmButtonText: 'Entendi!'
+      confirmButtonText: 'Entendi!',
+      background: '#2f3135',
+      color: '#fff'
     })
     throw new Error ('Campo de busca vazio!');
 
@@ -21,7 +23,9 @@ const getValue = () => {
       title: 'Error!',
       text: 'Quantidade de letras insuficientes para encontrar alguma coisa',
       icon: 'error',
-      confirmButtonText: 'Entendi!'
+      confirmButtonText: 'Entendi!',
+      background: '#2f3135',
+      color: '#fff'
     })
     throw new Error ('Campo de busca possui menos de 3 caracteres');
 
@@ -30,7 +34,9 @@ const getValue = () => {
       title: 'Error!',
       text: 'Letras demais... Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR !!!',
       icon: 'error',
-      confirmButtonText: 'Entendi!'
+      confirmButtonText: 'Entendi!',
+      background: '#2f3135',
+      color: '#fff'
     })
     throw new Error ('Campo de busca possui mais de 3 caracteres');
   }
@@ -66,7 +72,9 @@ const getCoinsDatabase = async (coin) => {
         title: 'Error!',
         text: 'Não encontramos o que procura,tente novamente!',
         icon: 'error',
-        confirmButtonText: 'Entendi!'
+        confirmButtonText: 'Entendi!',
+        background: '#2f3135',
+        color: '#fff'
       })
       throw new Error ('o que procura não existe, retornando dados padão')
     }
