@@ -23,7 +23,8 @@ const getCoinsDatabase = async (coin) => {
 const createCoinsBox = (element) => {
     const main = document.querySelector("#main");
     const coinPar = document.createElement("p");
-    coinPar.innerHTML = `<b>${element[0]}: </b> ${element[1]}`;
+    const coinValue = element[1].toFixed(2);
+    coinPar.innerHTML = `<b>${element[0]}: </b> ${coinValue}`;
     coinPar.style.margin = '5px';
     coinPar.style.padding = '5px';
     coinPar.style.borderRadius = '10px';

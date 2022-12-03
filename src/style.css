@@ -116,6 +116,9 @@ b {
     justify-content: center;
     align-items: center;
   }
+  main {
+    justify-content: center;
+  }
   #searchBox {
     flex-direction: column;
   }
