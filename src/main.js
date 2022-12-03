@@ -36,7 +36,7 @@ const getValue = () => {
   }
 
   // caso nenhuma das condições de erro forem atendidas o código segue normal
-  getCoinsDatabase(coinValue);
+  getCoinsDatabase(coinValue.toUpperCase());
 }
 
 const blockNumber = (e) => {
@@ -61,9 +61,7 @@ const getCoinsDatabase = async (coin) => {
   try {
     const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
     const data =  await response.json();
-    renderCoin(data);
-    reference(data);
-    if (coin != data.base) {
+    if (coin !== data.base) {
       Swal.fire({
         title: 'Error!',
         text: 'Não encontramos o que procura,tente novamente!',
@@ -72,6 +70,8 @@ const getCoinsDatabase = async (coin) => {
       })
       throw new Error ('o que procura não existe, retornando dados padão')
     }
+    renderCoin(data);
+    reference(data);
   }
   catch (erro) {
     console.log(erro.message);
