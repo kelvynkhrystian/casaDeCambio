@@ -1,6 +1,19 @@
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
+
 // Recebe e repassa o valor armazenado no input
 const getValue = () => {
     const coinValue = document.getElementById('coin').value;
+    if (coinValue === '') {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Para pesquisar não deixe o espaço vazio!',
+            icon: 'error',
+            confirmButtonText: 'Entendi!'
+          })
+        // alert ('digite');
+        // throw new Error ('Campo de busca vazio');
+    }
     getCoinsDatabase(coinValue);
 }
 
@@ -46,3 +59,7 @@ const reference = ({base}) => {
     reference.style.display = 'flex';
     referenceSpan.innerHTML = `1 ${base}`;
 }
+
+
+
+

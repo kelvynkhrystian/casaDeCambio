@@ -110,7 +110,7 @@ b {
   display: flex;
 }
 
-@media (min-width:320px) and (max-width:900px) {
+@media (min-width:320px) and (max-width:600px) {
   body {
     flex-direction: column;
     justify-content: center;
