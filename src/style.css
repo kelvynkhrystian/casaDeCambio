@@ -115,6 +115,7 @@ b {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
   }
   main {
     justify-content: center;
@@ -122,11 +123,19 @@ b {
   #searchBox {
     flex-direction: column;
   }
-  header h1{
+  header{
     text-align: center;
   }
+  article {
+    width: 100%;
+  }
   button {
+    height: 50px;
     margin-left: 0;
     margin-top: 10px;
   }
+  label {
+    height: 25px;
+  }
+
 }
