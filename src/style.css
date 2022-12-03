@@ -107,7 +107,7 @@ b {
 }
 
 #searchBox {
-  display: flex;
+  display: block;
 }
 
 @media (min-width:320px) and (max-width:600px) {
@@ -120,20 +120,25 @@ b {
   main {
     justify-content: center;
   }
+
   #searchBox {
     flex-direction: column;
   }
+
   header{
     text-align: center;
   }
+
   article {
     width: 80%;
   }
+
   button {
     height: 50px;
     margin-left: 0;
     margin-top: 10px;
   }
+
   label {
     height: 25px;
   }

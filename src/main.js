@@ -58,10 +58,15 @@ search();
 
 // faz a requisição na API e repassa os dados ŕecebidos
 const getCoinsDatabase = async (coin) => {
-  const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
-  const data =  await response.json();
-  renderCoin(data);
-  reference(data);
+  try {
+    const response = await fetch(`https://api.exchangerate.host/latest?base=${coin}`);
+    const data =  await response.json();
+    renderCoin(data);
+    reference(data);
+  }
+  catch (erro) {
+    console.log(erro.message);
+  }
 }
 
 const createCoinsBox = (element) => {
