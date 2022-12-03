@@ -78,16 +78,16 @@ const createCoinsBox = (element) => {
 
 // recebe o valor da chave rates, por object destructing, devido ao valor data ser passado por arg
 const renderCoin = ({rates}) => {
-    const pares = Object.entries(rates);
-    pares.forEach((element) => createCoinsBox(element));
+  const pares = Object.entries(rates);
+  pares.forEach((element) => createCoinsBox(element));
 }
 
 // Renderiza valor referente dinamicamente dependendo da chave base da api
 const reference = ({base}) => {
-    const reference = document.getElementById('referencia');
-    const referenceSpan = document.getElementById('referenciaspan');
-    reference.style.display = 'flex';
-    referenceSpan.innerHTML = `1 ${base}`;
+  const reference = document.getElementById('referencia');
+  const referenceSpan = document.getElementById('referenciaspan');
+  reference.style.display = 'flex';
+  referenceSpan.innerHTML = `1 ${base}`;
 }
 
 
