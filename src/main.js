@@ -4,16 +4,42 @@ import Swal from 'sweetalert2'
 // Recebe e repassa o valor armazenado no input
 const getValue = () => {
     const coinValue = document.getElementById('coin').value;
+    coinValue.toUpperCase();
     if (coinValue === '') {
         Swal.fire({
             title: 'Error!',
             text: 'Para pesquisar não deixe o espaço vazio!',
             icon: 'error',
             confirmButtonText: 'Entendi!'
-          })
-        // alert ('digite');
-        // throw new Error ('Campo de busca vazio');
+        })
+        throw new Error ('Campo de busca vazio!');
+    } else if (typeof coinValue != 'string') {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Digite somente letras!',
+            icon: 'error',
+            confirmButtonText: 'Entendi!'
+        })
+        throw new Error ('Campo de busca não possui letras');
+    } else if (coinValue.length < 3) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Quantidade de letras insuficientes para encontrar alguma coisa',
+            icon: 'error',
+            confirmButtonText: 'Entendi!'
+        })
+        throw new Error ('Campo de busca possui menos de 3 caracteres');
+    } else if (coinValue.length > 3) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR',
+            icon: 'error',
+            confirmButtonText: 'Entendi!'
+        })
+        throw new Error ('Campo de busca possui mais de 3 caracteres');
     }
+    
+    // caso nenhuma das condições de erro forem atendidas o código segue normal
     getCoinsDatabase(coinValue);
 }
 
