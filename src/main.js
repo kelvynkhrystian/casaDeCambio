@@ -20,10 +20,18 @@ const getCoinsDatabase = async (coin) => {
     reference(data)
 }
 
+const createCoinsBox = (element) => {
+    const main = document.querySelector("#main")
+    const coinPar = document.createElement("p");
+    coinPar.innerHTML = `${element[0]}: ${element[1]}`
+    main.appendChild(coinPar)
+
+}
+
 // recebe o valor da chave rates, por object destructing, devido ao valor data ser passado por arg
 const renderCoin = ({rates}) => {
-    const pares = Object.entries(rates)
-    console.log(pares);
+    const pares = Object.entries(rates);
+    pares.forEach((element) => createCoinsBox(element));
 }
 
 // Renderiza valor referente dinamicamente dependendo da chave base da api
