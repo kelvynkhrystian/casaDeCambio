@@ -32,22 +32,31 @@ const getValue = () => {
     } else if (coinValue.length > 3) {
         Swal.fire({
             title: 'Error!',
-            text: 'Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR',
+            text: 'Letras demais... Pesquise somente pares de moedas válidos, ex: BRL, USD, EUR !!!',
             icon: 'error',
             confirmButtonText: 'Entendi!'
         })
         throw new Error ('Campo de busca possui mais de 3 caracteres');
     }
-    
+
     // caso nenhuma das condições de erro forem atendidas o código segue normal
     getCoinsDatabase(coinValue);
+}
+
+const blockNumber = (e) => {
+  const keyCode = (e.keyCode ? e.keyCode : e.which);
+  if (keyCode > 47 && keyCode < 58) {
+    e.preventDefault();
+  }
 }
 
 // Onde tudo começa
 // Evento pesquisar quando o botão é clickado
 const search = () => {
-    const pesquisar = document.getElementById('pesquisar');
-    pesquisar.addEventListener('click', getValue);
+  const pesquisar = document.getElementById('pesquisar');
+  const coin = document.getElementById('coin');
+  pesquisar.addEventListener('click', getValue);
+  coin.addEventListener("keypress", blockNumber);
 }
 search();
 
