@@ -89,7 +89,8 @@ const getCoinsDatabase = async (coin) => {
 const createCoinsBox = (element) => {
   const main = document.querySelector("#main");
   const coinPar = document.createElement("p");
-  const coinValue = element[1].toFixed(2);
+  const inputNumber = document.getElementById('number').value;
+  const coinValue = (element[1] * inputNumber).toFixed(2);
   coinPar.innerHTML = `<b>${element[0]}: </b> ${coinValue}`;
   coinPar.style.margin = '5px';
   coinPar.style.padding = '5px';
@@ -108,9 +109,10 @@ const renderCoin = ({rates}) => {
 // Renderiza valor referente dinamicamente dependendo da chave base da api
 const reference = ({base}) => {
   const reference = document.getElementById('referencia');
+  const inputNumber = document.getElementById('number').value;
   const referenceSpan = document.getElementById('referenciaspan');
   reference.style.display = 'flex';
-  referenceSpan.innerHTML = `1 ${base}`;
+  referenceSpan.innerHTML = `${inputNumber}: ${base}`;
 }
 
 const cleanResults = () => {
