@@ -120,6 +120,15 @@ b {
   width: 10%;
 }
 
+#coin-label {
+  width: 80%;
+}
+
+#inputs {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (min-width:0px) and (max-width:600px) {
   body {
     flex-direction: column;
@@ -135,6 +144,7 @@ b {
 
   #searchBox {
     display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -153,9 +163,8 @@ b {
   }
 
   label {
-    padding: 10px 20px;
     display: flex;
-    justify-content: space-between;
+    padding: 10px;
   }
 
   h1 {
