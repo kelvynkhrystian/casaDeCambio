@@ -112,7 +112,7 @@ const reference = ({base}) => {
   const inputNumber = document.getElementById('number').value;
   const referenceSpan = document.getElementById('referenciaspan');
   reference.style.display = 'flex';
-  referenceSpan.innerHTML = `${inputNumber}: ${base}`;
+  referenceSpan.innerHTML = `${inputNumber} ${base}`;
 }
 
 const cleanResults = () => {
