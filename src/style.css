@@ -117,7 +117,7 @@ b {
 
 #number-label {
   margin-right: 5px;
-  width: 10%;
+  width: 20%;
 }
 
 #coin-label {
@@ -153,7 +153,7 @@ b {
   }
 
   article {
-    width: 90%;
+    width: 80%;
   }
 
   button {
