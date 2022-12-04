@@ -108,7 +108,16 @@ b {
 }
 
 #searchBox {
-  display: block;
+  display: flex;
+}
+
+#number {
+  width: 100%;
+}
+
+#number-label {
+  margin-right: 5px;
+  width: 10%;
 }
 
 @media (min-width:0px) and (max-width:600px) {
@@ -126,7 +135,6 @@ b {
 
   #searchBox {
     display: flex;
-    flex-direction: column;
     width: 100%;
   }
 
@@ -146,6 +154,8 @@ b {
 
   label {
     padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
   }
 
   h1 {

@@ -21,10 +21,13 @@
       <p>Digite sua moeda:</p>
     </section>
     <section id="searchBox">
-      <label for="coin">
+      <label for="number" id="number-label">
+        <input type="number" name="number" id="number" value="1" min="1" >
+      </label>
+      <label for="coin" id="coin-label">
         <input type="text" name="coin" id="coin" placeholder="Ex: BRL, USD, EUR">
       </label>
-      <button id="pesquisar"> Pesquisar </button>
+      <button id="pesquisar"> Pesquisar </button> <br>
       <p id="referencia">Valor referente: <span id="referenciaspan"></span></p>
     </section>
   </article>
